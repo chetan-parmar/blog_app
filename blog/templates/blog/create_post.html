@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block body_content %}
+    <div class="w-full">
+        <div class="bg-gradient-to-b from-blue-800 to-blue-600 h-96"></div>
+        <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
+            <div class="bg-white w-full shadow rounded p-8 sm:p-12 -mt-72">
+                <p class="text-3xl font-bold leading-7 text-center">Create New Post</p>
+                <form action="{% url 'create_post' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="md:flex items-center mt-12">
+                        <div class="w-full md:w-1/2 flex flex-col">
+                            <label class="font-semibold leading-none">Title</label>
+                            {{form.title}}
+                        </div>
+                        <div class="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
+                            <label class="font-semibold leading-none mb-5">Category</label>
+                            {{form.category}}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="w-full flex flex-col mt-8">
+                            <label class="font-semibold leading-none">Content</label>
+                            {{form.content}}
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center w-full">
+                        <button class="mt-9 font-semibold leading-none text-white py-4 px-10 bg-blue-700 rounded hover:bg-blue-600 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:outline-none">
+                            Create Post
+                        </button>
+                    </div>
+                    {% if form.errors %}
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <span class="font-medium">{{ form.errors }}</span>
+                    </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock body_content %}

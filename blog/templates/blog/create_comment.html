@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block body_content %}
+    <div class="w-full">
+        <div class="bg-gradient-to-b from-blue-800 to-blue-600 h-96"></div>
+        <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
+            <div class="bg-white w-full shadow rounded p-8 sm:p-12 -mt-72">
+                <p class="text-3xl font-bold leading-7 text-center">Comment on: {{ post.title }}</p>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="md:flex items-center mt-12">
+                        <div class="w-full flex flex-col">
+                            <label for="id_name" class="font-semibold leading-none">Name</label>
+                            {{ form.name }}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="w-full flex flex-col mt-8">
+                            <label for="id_body" class="font-semibold leading-none">Comment</label>
+                            {{ form.body }}
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center w-full">
+                        <button class="mt-9 font-semibold leading-none text-white py-4 px-10 bg-blue-700 rounded hover:bg-blue-600 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:outline-none">
+                            Submit Comment
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock body_content %}

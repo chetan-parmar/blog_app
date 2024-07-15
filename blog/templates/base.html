@@ -1,0 +1,24 @@
+{% load static tailwind_tags %}
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% tailwind_css %}
+    {% block head %}
+    {% endblock head %}
+</head>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet">
+
+
+<body class="bg-gray-100">
+    {% block body_content %}
+    {% endblock body_content %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
+</body>
+
+</html>
